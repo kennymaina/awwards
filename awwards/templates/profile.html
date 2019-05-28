@@ -1,0 +1,140 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <title>Awwwwards</title>
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/project.css'%}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    {% endblock %}
+
+</head>
+<body>
+
+
+<div class="w3-display-container" style="max-height:300px">
+    <img src="{% static 'images/tri.png' %}" alt="Lights" style="max-height:300px; width:100%">
+
+    <div class="w3-display-middle w3-large">
+    </div>
+      <div class="w3-display-topleft w3-container w3-padding">
+          <a href="{% url 'home' %}"><i class="fas fa-long-arrow-alt-left fa-2x " style="color:white"></i></a>
+
+      </div>
+  <div class="w3-display-topright w3-container w3-padding w3-margin">
+
+      <div class="w3-dropdown-hover">
+          <button class="w3-button"><i class="fas fa-cog fa-2x" style="color:white"></i>
+        </button>
+
+
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="{% url 'update_profile' %}" class="w3-bar-item w3-button">Update Profile</a>
+
+
+            <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+        </div>
+    </div>
+  </div>
+    <div class="w3-display-topmiddle w3-container">
+        <h1 class="profile-user-name" style="font-size: 25px; color:white">{{profile.profile.full_name}}</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container">
+        {% if profile.profile.profile_pic%}
+        <img src="{{profile.profile.profile_pic.url}}" width="100px" height="100px " alt=""
+             class="img-responsive" style="border-radius:50%">
+        {% endif %}
+    </div>
+</div>
+
+<div class="w3-center">
+    <p style="font-size: 20px;"><span class="profile-real-name" ><strong>{{user.username}}</strong></span>
+        <br> <p >{{user.profile.Bio}}</p></p>
+
+
+</div>
+<div class="w3-card-4 w3-white w3-padding w3-margin ">
+    <header ><h2>Contact Information</h2>
+    <hr>
+    </header>
+     <div class="w3-container w3-margin">
+
+                 <p><i class="fas fa-at"></i>  {{user.email}}</p>
+         <hr>
+       <p><i class="fas fa-map-marker-alt"></i>  {{profile.profile.address}}</p>
+         <hr>
+                <p><i class="fas fa-phone"></i>   {{profile.profile.phone_number}}</p>
+         <hr>
+     </div>
+
+
+</div>
+
+
+<div class="w3-container">
+
+
+    <div class="w3-row">
+        <h2 class="w3-center">Your Projects</h2>
+        {% for photo in project %}
+        <div class="w3-col l4 m6 s12 w3-padding">
+            <div class="w3-card-4 w3-white">
+
+                <header class="hovereffect" style="height:300px">
+                    <img src=" {{ photo.screenshot.cdn_url }}" class="img-responsive w3-image w3-center" style="min-height:100%; max-height:100%">
+                    <div class="overlay">
+                        <p><a class="info w3-btn w3-round-xxlarge w3-white w3-padding" href=""><small>Vote Now</small></a></p>
+                        <p><a class="info w3-btn w3-round-xxlarge w3-white w3-padding" href="{{photo.url}}"><small>Visit Site</small></a></p>
+
+                    </div>
+
+                </header>
+
+                <div class="w3-container w3-margin">
+
+                    <strong>{{ photo.title }}</strong>
+                       <a href="{% url 'project' project_id=photo.id %}" class=" w3-right "style="color:blue">View More</a>
+
+
+                </div>
+
+                <footer class="w3-container w3-margin">
+                    <small>{{user.username}}</small>
+
+
+                        <div class="row">
+
+                            <div class="col-md-2" style="font-size: 10px;font-weight: bold;">
+                                <h5 class="card-title"></h5>
+                            </div>
+                        </div>
+
+                <small class="text-muted">{{photo.created_on|timesince}}</small>
+
+
+                </footer>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
+</body>
+</html>

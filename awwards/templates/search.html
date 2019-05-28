@@ -1,0 +1,25 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if searched_project%}
+      <h2>Found {{ searched_project|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Oops {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if searched_project %}
+    {% for searched_project in searched_project %}
+      <div class="col-sm-6 col-md-3">
+          <h1>{{searched_project.title}}</h1>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
