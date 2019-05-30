@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      <title>Awwwwards</title>
+      <title>Awards</title>
 
     {% block styles %}
     {% bootstrap_css %}
@@ -24,18 +24,18 @@
 
 
 <div class="w3-display-container" style="max-height:300px">
-    <img src="{% static 'images/tri.png' %}" alt="Lights" style="max-height:300px; width:100%">
+    <!-- <img src="{%  '' %}" alt="Lights" style="max-height:300px; width:100%"> -->
 
     <div class="w3-display-middle w3-large">
     </div>
       <div class="w3-display-topleft w3-container w3-padding">
-          <a href="{% url 'home' %}"><i class="fas fa-long-arrow-alt-left fa-2x " style="color:white"></i></a>
+          <a href="{% url 'base' %}"><i class="fas fa-long-arrow-alt-left fa-2x " style="color:black"></i></a>
 
       </div>
   <div class="w3-display-topright w3-container w3-padding w3-margin">
 
       <div class="w3-dropdown-hover">
-          <button class="w3-button"><i class="fas fa-cog fa-2x" style="color:white"></i>
+          <!-- <button class="w3-button"><i class="fas fa-cog fa-2x" style="color:black"></i> -->
         </button>
 
 
@@ -48,7 +48,7 @@
     </div>
   </div>
     <div class="w3-display-topmiddle w3-container">
-        <h1 class="profile-user-name" style="font-size: 25px; color:white">{{profile.profile.full_name}}</h1>
+        <h1 class="profile-user-name" style="font-size: 25px; color:black">{{profile.profile.full_name}}</h1>
     </div>
     <div class="w3-display-bottommiddle w3-container">
         {% if profile.profile.profile_pic%}
@@ -73,9 +73,7 @@
                  <p><i class="fas fa-at"></i>  {{user.email}}</p>
          <hr>
        <p><i class="fas fa-map-marker-alt"></i>  {{profile.profile.address}}</p>
-         <hr>
-                <p><i class="fas fa-phone"></i>   {{profile.profile.phone_number}}</p>
-         <hr>
+         
      </div>
 
 
@@ -92,9 +90,9 @@
             <div class="w3-card-4 w3-white">
 
                 <header class="hovereffect" style="height:300px">
-                    <img src=" {{ photo.screenshot.cdn_url }}" class="img-responsive w3-image w3-center" style="min-height:100%; max-height:100%">
+                    <img src=" {{ project_photo.cdn_url }}" class="img-responsive w3-image w3-center" style="min-height:100%; max-height:100%">
                     <div class="overlay">
-                        <p><a class="info w3-btn w3-round-xxlarge w3-white w3-padding" href=""><small>Vote Now</small></a></p>
+                
                         <p><a class="info w3-btn w3-round-xxlarge w3-white w3-padding" href="{{photo.url}}"><small>Visit Site</small></a></p>
 
                     </div>
@@ -104,7 +102,7 @@
                 <div class="w3-container w3-margin">
 
                     <strong>{{ photo.title }}</strong>
-                       <a href="{% url 'project' project_id=photo.id %}" class=" w3-right "style="color:blue">View More</a>
+
 
 
                 </div>
