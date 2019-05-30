@@ -14,7 +14,8 @@ def home(request):
     screenshots = Project.objects.all()
     current_user = request.user
     # w= Profile.objects.all()
-    return render(request, 'home.html',locals())
+    # return render(request, 'home.html',locals())
+    return render(request, 'home.html',{"screenshots":screenshots,"current_user":current_user })
 
 
 
