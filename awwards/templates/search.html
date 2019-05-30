@@ -14,9 +14,13 @@
   <div class="row">
 
   {% if searched_project %}
-    {% for searched_project in searched_project %}
+    {% for search_project in searched_project %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{searched_project.title}}</h1>
+          <h1>{{search_project.project_name}}</h1>
+          <img src="{{search_project.project_photo.url}}" alt="">
+          <p>{{search_project.description}}</p>
+          <p>{{search_project.github_repo}}</p>
+          <p>{{search_project.url}}</p>
       </div>
     {% endfor %}
   {% endif %}
