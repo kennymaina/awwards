@@ -10,9 +10,8 @@ urlpatterns=[
        url(r'^project/', views.project, name='project'),
        url(r'^upload/', views.upload_project, name='upload'),
        url(r'^accounts/update/', views.edit, name='update_profile'),
+     
+
 ]
-
-
-
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
