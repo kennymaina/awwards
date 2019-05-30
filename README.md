@@ -16,7 +16,6 @@ another user can view live link in github
 | Behavior            | Input                         | Output                        |
 | ------------------- | ----------------------------- | ----------------------------- |
 | View Home | then click home | will go to the home page |
-|
 | Visit actual site | Project url link | livelink|
 | rating of projects | based on % |then the % is combined|
 
