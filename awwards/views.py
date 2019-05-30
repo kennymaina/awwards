@@ -1,3 +1,4 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from .models import *
@@ -9,8 +10,11 @@ from django.contrib.auth import login, authenticate
 
 
 # Create your views here.
-def base(request):
-    return render(request,'base.html')
+def home(request):
+    screenshots = Project.objects.all()
+    current_user = request.user
+    w= Profile.objects.all()
+    return render(request, 'home.html',locals())
 
 
 
@@ -32,8 +36,8 @@ def upload_project(request):
 
 
 def search_results(request):
-    if 'search' in request.GET and request.GET['search']:
-        search_term = request.GET.get('search')
+    if 'project' in request.GET and request.GET['project']:
+        search_term = request.GET.get('project')
         searched_project = Project.search_by_project(search_term)
         message = f"{search_term}"
 
