@@ -1,6 +1,8 @@
+<body background="https://i.ytimg.com/vi/HUbgIMEOkxU/hqdefault.jpg">
 {% extends "registration/base.html"%}
 {% load bootstrap3 %}
 {% block content %}
+
 <div class="container">
   <div class="row">
     <!-- Empty div -->
@@ -26,16 +28,30 @@
 
             <input type="hidden" name="next" value="{{next}}">
 
-          </form>
-
-        </div>
-
-      </div>
+        </form>
 
     </div>
-    <!-- empty div -->
-    <div class="col-md-4"></div>
-  </div>
+
 </div>
 
+<div class="w3-card-4 w3-margin-top w3-padding">
+
+    <div class="w3-container w3-padding">
+        <p class="w3-center"> Don't Have an account? <a href="/accounts/register">Sign Up</a> </p>
+
+    </div>
+
+</div>
+
+</div>
+<div class="w3-col l2">
+
+</div>
+
+
+</div>
+</div>
+
+
 {% endblock %}
+</body>
