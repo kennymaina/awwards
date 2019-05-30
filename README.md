@@ -29,12 +29,12 @@ another user can view live link in github
 
 
 ## Prerequisites
-* Python 3.6
+* django==1.11
 * Postgresql
 
 ## Setup/Installation Requirements
-Follow the following commands to run the project
-* 
+have a well installed requirements.txt
+ 
 
 
 ## Known Bugs
