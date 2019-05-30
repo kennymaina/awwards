@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %} <h1 class='text-center'>Awards</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="w3-container">
+    <div class="w3-row">
+<img src="https://i.kinja-img.com/gawker-media/image/upload/s--8myN5kD9--/c_scale,f_auto,fl_progressive,q_80,w_800/exhl9hxjevx2uadvte3u.jpg" width="1280px" length="1500px" alt="">
+
+    
+
+{% for project in screenshots%}
+
+<div class="w3-col l4 m4 s12 w3-padding">
+    <div class="w3-card-4 w3-black">
+
+<p>{{project.project_name}}</p>
+<img src="{{project.project_photo.url}}" alt="">
+<p>{{project.description}}</p>
+<p>{{project.github_repo}}</p>
+<a href="{{project.url}}">Live Link</a>
+
+</div>
+      </div>
+
+{% endfor%}
+
+</div>
+   </div>
+{% endblock %}
