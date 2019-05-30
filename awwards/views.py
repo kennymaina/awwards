@@ -13,7 +13,7 @@ from django.contrib.auth import login, authenticate
 def home(request):
     screenshots = Project.objects.all()
     current_user = request.user
-    w= Profile.objects.all()
+    # w= Profile.objects.all()
     return render(request, 'home.html',locals())
 
 
