@@ -26,7 +26,7 @@ another user can view live link in github
 
 
 ## Application link
-
+https://github.com/kennymaina/awwards.git
 
 ## Prerequisites
 * django==1.11
